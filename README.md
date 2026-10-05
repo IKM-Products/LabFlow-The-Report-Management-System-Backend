@@ -1,24 +1,19 @@
 # 🧪 LabFlow: The Report Management System (Backend)
 
-**LabFlow Backend** is the server-side component of the LabFlow laboratory report management system. It provides RESTful APIs and backend services for authentication, user management, laboratory departments, test catalogs, patient records, test orders, diagnostic results, and laboratory report processing.
-
-The backend acts as the core data and business-logic layer, connecting the frontend application with the PostgreSQL database and managing secure, structured communication between the system components.
+**LabFlow The Report Management System Backend** is the server-side component that provides RESTful APIs for authentication, user management, laboratory departments, test catalogs, patient records, test orders, diagnostic results, and report processing, while handling the core business logic and database communication with PostgreSQL.
 
 ## 🚀 Features
 
-* 🔐 **Authentication & Authorization** - Secure authentication and role-based access control for **Admins** and **Technicians**.
-* 👥 **User Management** - Create, update, retrieve, and manage Admin and Technician accounts.
-* 🏢 **Department Management** - Manage laboratory departments and their associated information.
-* 🔬 **Test Catalog Management** - Manage laboratory tests, parameters, and reference ranges.
-* 👤 **Patient Management** - Create, update, retrieve, and manage patient records and information.
-* 🏥 **Visit Management** - Manage patient visits and maintain visit-related records.
-* 📦 **Order Management** - Create and manage laboratory test orders associated with patients and visits.
-* 🧪 **Test Result Management** - Store, update, and retrieve diagnostic test results.
-* 📄 **Report Management** - Process and manage laboratory reports throughout their workflow.
-* 📋 **Report Status Tracking** - Maintain and update the status of laboratory reports.
-* 🔎 **API Endpoints** - Provides structured REST APIs for communication with the LabFlow frontend.
-* 🗄️ **Database Management** - Store and manage application data using PostgreSQL.
-* 🛡️ **Data Validation** - Validate incoming requests and maintain data consistency across the system.
+* 🔐 **Authentication & Authorization** - Secure authentication and role-based access control for Admins and Technicians.
+* 🌐 **RESTful API** - Provides structured API endpoints for communication between the frontend and backend.
+* ⚙️ **Business Logic** - Handles server-side application logic and processing for laboratory operations.
+* 🗄️ **Database Operations** - Performs secure CRUD operations and manages application data using PostgreSQL.
+* 👥 **User & Role Management** - Handles user accounts, roles, permissions, and access control.
+* 🛡️ **Data Validation** - Validates incoming requests and ensures data integrity and consistency.
+* 🔒 **API Security** - Protects backend resources through authentication middleware and authorized access.
+* 🔄 **Data Processing** - Processes and manages laboratory, patient, test, order, result, and report data.
+* ⚠️ **Error Handling** - Provides structured error handling and appropriate API responses for failed requests.
+* 🔗 **Frontend Integration** - Provides backend services and APIs required by the LabFlow frontend application.
 
 ## 🛠️ Technologies Used
 
@@ -28,7 +23,7 @@ The backend acts as the core data and business-logic layer, connecting the front
 * **Authentication:** JWT / Authentication Middleware
 * **Validation:** Request & Data Validation
 * **Database Communication:** PostgreSQL Driver / Database Layer
-* **API Testing:** Postman
+* **API Testing:** Bruno
 * **Version Control:** Git & GitHub
 * **Code Editor:** Visual Studio Code
 
@@ -47,40 +42,53 @@ The backend acts as the core data and business-logic layer, connecting the front
 The backend follows a structured architecture that separates API handling, business logic, data access, and database operations.
 
 ```text
-Client / Frontend
-       │
-       ▼
-   REST API
-       │
-       ▼
- Controllers / Handlers
-       │
-       ▼
-   Business Logic
-       │
-       ▼
- Repository / Data Access
-       │
-       ▼
-   PostgreSQL
+                    🧪 LabFlow Backend
+                           │
+                    REST API / HTTP
+                           │
+             ┌─────────────┴─────────────┐
+             │                           │
+        🔐 Authentication          📊 API Endpoints
+             │                           │
+             ├── Admin                   ├── Patients
+             └── Technician              ├── Visits
+                                         ├── Orders
+                                         ├── Tests
+                                         ├── Results
+                                         └── Reports
+                           │
+                    ⚙️ Business Logic
+                           │
+                    🗄️ PostgreSQL
 ```
 
 ## 🗄️ Database
 
 **PostgreSQL** is used as the primary database for storing and managing LabFlow data, including:
 
-* Users
-* Roles
-* Departments
-* Laboratory Tests
-* Test Parameters
-* Reference Ranges
-* Patients
-* Visits
-* Test Orders
-* Test Results
-* Laboratory Reports
-* Report Statuses
+* **👥 User & Access Management**
+  * Users / Profiles
+  * System Roles (`ADMIN`, `TECHNICIAN`)
+
+* **🏥 Clinical Management**
+  * Laboratories
+  * Departments
+  * Doctors
+
+* **🧪 Test Management**
+  * Test Catalogs
+  * Test Panels
+  * Test Parameters
+  * Test Reference Ranges
+
+* **📋 Operational Management**
+  * Patients
+  * Visits
+  * Orders
+
+* **📊 Diagnostic Management**
+  * Results
+  * Reports
 
 ## 🎯 Objective
 
@@ -89,7 +97,6 @@ The objective of the **LabFlow Backend** is to provide a secure, reliable, and s
 ## 🔮 Future Enhancements
 
 * 📄 Automated PDF report generation
-* 📧 Email notifications for report completion
 * ☁️ Cloud-based file and document storage
 * 📊 Advanced laboratory analytics
 * 🔔 Real-time report status notifications
